@@ -3,8 +3,9 @@ import { Balance } from '../components/Balance'
 import { BlockNumber } from '../components/BlockNumber'
 import { ConnectButton } from '../components/ConnectButton'
 import { Connected } from '../components/Connected'
+import { MintTokens } from '../components/MintTokens'
 import { NetworkSwitcher } from '../components/NetworkSwitcher'
-import { ReadContract } from '../components/ReadContract'
+import { TokenContract } from '../components/ReadContract'
 import { ReadContracts } from '../components/ReadContracts'
 import { ReadContractsInfinite } from '../components/ReadContractsInfinite'
 import { SendTransaction } from '../components/SendTransaction'
@@ -20,21 +21,12 @@ import { WriteContractPrepared } from '../components/WriteContractPrepared'
 export function Page() {
   return (
     <>
-      <h1>wagmi + RainbowKit + Next.js</h1>
+      <h1>Encode Club Lesson 16</h1>
 
       <ConnectButton />
 
       <Connected>
-        <hr />
-        <h2>Network</h2>
-        <NetworkSwitcher />
-        <br />
-        <hr />
-        <h2>Account</h2>
-        <Account />
-        <br />
-        <hr />
-        <h2>Balance</h2>
+        <h2>ETH Balance</h2>
         <Balance />
         <br />
         <hr />
@@ -42,11 +34,12 @@ export function Page() {
         <BlockNumber />
         <br />
         <hr />
-        <h2>Read Contract</h2>
-        <ReadContract />
+        <h2>Token Contract</h2>
+        <TokenContract />
         <br />
+        <MintTokens />
         <hr />
-        <h2>Read Contracts</h2>
+        <h2>Voting Contract</h2>
         <ReadContracts />
         <br />
         <hr />

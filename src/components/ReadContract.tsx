@@ -4,9 +4,9 @@ import { useState } from 'react'
 import { BaseError } from 'viem'
 import { type Address, useContractRead } from 'wagmi'
 
-import { wagmiContractConfig } from './contracts'
+import { tokenContractConfig } from './contracts'
 
-export function ReadContract() {
+export function TokenContract() {
   return (
     <div>
       <div>
@@ -20,7 +20,7 @@ export function ReadContract() {
 
 function TotalSupply() {
   const { data, isRefetching, refetch } = useContractRead({
-    ...wagmiContractConfig,
+    ...tokenContractConfig,
     functionName: 'totalSupply',
   })
 
@@ -40,10 +40,11 @@ function TotalSupply() {
 
 function BalanceOf() {
   const [address, setAddress] = useState<Address>(
-    '0xa5cc3c03994DB5b0d9A5eEdD10CabaB0813678AC',
+    '0xdaabeCACDD888DCf68Ff1f2d9202e74ABA0601bd',
   )
+
   const { data, error, isLoading, isSuccess } = useContractRead({
-    ...wagmiContractConfig,
+    ...tokenContractConfig,
     functionName: 'balanceOf',
     args: [address],
     enabled: Boolean(address),

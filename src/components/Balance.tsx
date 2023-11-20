@@ -10,10 +10,6 @@ export function Balance() {
       <div>
         <AccountBalance />
       </div>
-      <br />
-      <div>
-        <FindBalance />
-      </div>
     </>
   )
 }

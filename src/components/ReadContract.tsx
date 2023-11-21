@@ -10,6 +10,10 @@ export function TokenContract() {
   return (
     <div>
       <div>
+        <h3>Token Contract</h3>
+        <pre>{JSON.stringify(tokenContractConfig.address, null, 2)}</pre>
+      </div>
+      <div>
         <BalanceOf />
         <br />
         <TotalSupply />

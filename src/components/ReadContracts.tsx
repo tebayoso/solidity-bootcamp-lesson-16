@@ -2,30 +2,47 @@
 
 import { useContractReads } from 'wagmi'
 
-import { wagmiContractConfig } from './contracts'
+import { ballotContractConfig, wagmiContractConfig } from './contracts'
 import { stringify } from '../utils/stringify'
 
 export function ReadContracts() {
   const { data, isSuccess, isLoading } = useContractReads({
     contracts: [
       {
-        ...wagmiContractConfig,
-        functionName: 'balanceOf',
-        args: ['0xa5cc3c03994DB5b0d9A5eEdD10CabaB0813678AC'],
+        ...ballotContractConfig,
+        functionName: 'proposals',
+        args: [BigInt(0)],
       },
       {
-        ...wagmiContractConfig,
-        functionName: 'name',
+        ...ballotContractConfig,
+        functionName: 'proposals',
+        args: [BigInt(1)],
       },
       {
-        ...wagmiContractConfig,
-        functionName: 'totalSupply',
-      },
+        ...ballotContractConfig,
+        functionName: 'proposals',
+        args: [BigInt(2)],
+      }
     ],
   })
 
+  const { data: tokenInfo, isSuccess: tokenLoaded, isLoading: tokenLoading } = useContractReads({
+    contracts: [
+      {
+        ...ballotContractConfig,
+        functionName: 'tokenContract',
+      }
+    ],
+  })
+
+  console.log(data)
+
   return (
     <div>
+      <div>Token:</div>
+      {tokenLoading && <div>loading...</div>}
+      {tokenLoaded &&
+        tokenInfo?.map((data) => <pre key={stringify(data)}>{stringify(data)}</pre>)}
       <div>Data:</div>
       {isLoading && <div>loading...</div>}
       {isSuccess &&

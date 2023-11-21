@@ -2,7 +2,7 @@ import '@rainbow-me/rainbowkit/styles.css'
 import { Providers } from './providers'
 
 export const metadata = {
-  title: 'wagmi',
+  title: 'Encode Club Lesson 16',
 }
 
 export default function RootLayout({
